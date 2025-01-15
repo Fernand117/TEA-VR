@@ -1,0 +1,11 @@
+# ninja log v5
+79	236	7532293838707595	FramePacing/CMakeFiles/swappywrapper.dir/UnitySwappyWrapper.cpp.o	dbc12bd18fddcea2
+238	522	7532293840360598	D:/Documentos/MSC/TESIS/Proyecto de tesis/Salon_Clases/SalonClasesEntorno/Library/Bee/Android/Prj/IL2CPP/Gradle/unityLibrary/build/intermediates/cxx/RelWithDebInfo/2u3c2t2i/obj/arm64-v8a/libswappywrapper.so	b0ce46f3c6e78f04
+34	739	7532293843643858	GameActivity/CMakeFiles/game.dir/UGAInputKeyEvent.cpp.o	1a5fb655dab2cac
+44	766	7532293843977308	GameActivity/CMakeFiles/game.dir/UGAEntry.cpp.o	e3719a5a0a2b5803
+67	780	7532293844096678	GameActivity/CMakeFiles/game.dir/UGAInputMotionEvent.cpp.o	606a2bb0c966db70
+15	884	7532293845119670	GameActivity/CMakeFiles/game.dir/UGADebug.cpp.o	dcf9e43a979099a9
+55	886	7532293845119670	GameActivity/CMakeFiles/game.dir/UGASoftKeyboard.cpp.o	f200608fbdcfd128
+25	1027	7532293846537283	GameActivity/CMakeFiles/game.dir/UGAInput.cpp.o	89e4652cf96390d9
+2	1130	7532293847475705	GameActivity/CMakeFiles/game.dir/UGAApplication.cpp.o	6eb0a3eff1529010
+1130	1391	7532293849250365	D:/Documentos/MSC/TESIS/Proyecto de tesis/Salon_Clases/SalonClasesEntorno/Library/Bee/Android/Prj/IL2CPP/Gradle/unityLibrary/build/intermediates/cxx/RelWithDebInfo/2u3c2t2i/obj/arm64-v8a/libgame.so	3bc31cdfad428caf
