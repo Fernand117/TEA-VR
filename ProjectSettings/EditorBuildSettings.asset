@@ -11,6 +11,12 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/NivelBasico/EnsartarPerlas.unity
     guid: 258f948b3532475469f7cb95533d5557
+  - enabled: 1
+    path: Assets/Scenes/NivelBasico/ServirBebidas.unity
+    guid: 0634184222fcdcf489a19bb7bdcbf818
+  - enabled: 1
+    path: Assets/Scenes/NivelBasico/ApretarClips.unity
+    guid: c9776124959e12341a3715aa20668b21
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: 716c9af0a0c3842438d3723385490016, type: 2}
     com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 326fa88f0e655f04cbcba9d11374c0f2, type: 2}
