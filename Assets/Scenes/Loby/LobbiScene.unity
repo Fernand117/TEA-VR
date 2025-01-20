@@ -131,7 +131,6 @@ GameObject:
   - component: {fileID: 36273361}
   - component: {fileID: 36273360}
   - component: {fileID: 36273359}
-  - component: {fileID: 36273358}
   - component: {fileID: 36273357}
   m_Layer: 6
   m_Name: HudInstrucciones
@@ -185,18 +184,6 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 4294967295
   m_RaycastTriggerInteraction: 1
---- !u!114 &36273358
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 36273354}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e5350ec461903d94b88ac6fdf334aa57, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &36273359
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -659,6 +646,7 @@ GameObject:
   - component: {fileID: 404248224}
   - component: {fileID: 404248223}
   - component: {fileID: 404248222}
+  - component: {fileID: 404248226}
   m_Layer: 6
   m_Name: btnPerlas
   m_TagString: Untagged
@@ -744,14 +732,14 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 36273354}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
+      - m_Target: {fileID: 404248226}
+        m_TargetAssemblyTypeName: LobyController, Assembly-CSharp
+        m_MethodName: LoadLevelIndex
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 1
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -794,6 +782,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 404248220}
   m_CullTransparentMesh: 1
+--- !u!114 &404248226
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 404248220}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a41b8dbb96a172749bddb34c15de1fbd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  LevelIndex: 1
 --- !u!1 &610496062
 GameObject:
   m_ObjectHideFlags: 0
@@ -1815,6 +1816,7 @@ GameObject:
   - component: {fileID: 929033580}
   - component: {fileID: 929033579}
   - component: {fileID: 929033578}
+  - component: {fileID: 929033582}
   m_Layer: 6
   m_Name: btnClips
   m_TagString: Untagged
@@ -1900,14 +1902,14 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 36273354}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
+      - m_Target: {fileID: 929033582}
+        m_TargetAssemblyTypeName: LobyController, Assembly-CSharp
+        m_MethodName: LoadLevelIndex
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 3
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -1950,6 +1952,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 929033576}
   m_CullTransparentMesh: 1
+--- !u!114 &929033582
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 929033576}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a41b8dbb96a172749bddb34c15de1fbd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  LevelIndex: 3
 --- !u!1 &931289656
 GameObject:
   m_ObjectHideFlags: 0
@@ -3275,6 +3290,7 @@ GameObject:
   - component: {fileID: 1956194734}
   - component: {fileID: 1956194733}
   - component: {fileID: 1956194732}
+  - component: {fileID: 1956194736}
   m_Layer: 6
   m_Name: btnServir
   m_TagString: Untagged
@@ -3360,14 +3376,14 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 36273354}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
+      - m_Target: {fileID: 1956194736}
+        m_TargetAssemblyTypeName: LobyController, Assembly-CSharp
+        m_MethodName: LoadLevelIndex
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 2
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -3410,6 +3426,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1956194730}
   m_CullTransparentMesh: 1
+--- !u!114 &1956194736
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1956194730}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a41b8dbb96a172749bddb34c15de1fbd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  LevelIndex: 2
 --- !u!1 &2019112464
 GameObject:
   m_ObjectHideFlags: 0

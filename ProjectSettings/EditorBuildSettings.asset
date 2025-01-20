@@ -5,9 +5,9 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
-    path: Assets/Scenes/SalonClases.unity
-    guid: 9fc0d4010bbf28b4594072e72b8655ab
+  - enabled: 1
+    path: Assets/Scenes/Loby/LobbiScene.unity
+    guid: 7d439b898c62c51449ed9d3b0beaa61a
   - enabled: 1
     path: Assets/Scenes/NivelBasico/EnsartarPerlas.unity
     guid: 258f948b3532475469f7cb95533d5557
