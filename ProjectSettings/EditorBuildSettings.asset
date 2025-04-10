@@ -17,6 +17,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/NivelBasico/ApretarClips.unity
     guid: c9776124959e12341a3715aa20668b21
+  - enabled: 1
+    path: Assets/Scenes/NivelIntermedio/PasarBolas.unity
+    guid: ebd5d17e7632c7741a71007f47c9fbc8
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: 716c9af0a0c3842438d3723385490016, type: 2}
     com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 326fa88f0e655f04cbcba9d11374c0f2, type: 2}

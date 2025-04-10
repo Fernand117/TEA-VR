@@ -9,13 +9,33 @@ public class EnsartarPerlas : MonoBehaviour
     public Text txtContador;
     private int contador = 0;
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider collision)
     {
-        Debug.Log("Colisión con Perla detectada");
-        if (collision.collider.CompareTag("Perla"))
+        Debug.Log("Colisiï¿½n detectada con: " + collision.GetComponent<Collider>().name);
+
+        if (collision.GetComponent<Collider>().CompareTag("Perla"))
         {
+            Transform perlaTransform = collision.transform;
+
+            // Fijar la Perla como hija de la Cï¿½psula
+            perlaTransform.SetParent(transform, true); // Se mantiene en su posiciï¿½n global
+
+            // Desactivar la fï¿½sica para que no se mueva mï¿½s
+            Rigidbody rb = perlaTransform.GetComponent<Rigidbody>();
+            if (rb != null)
+            {
+                rb.isKinematic = true; // Evitar que la fï¿½sica lo siga afectando
+                rb.useGravity = false;
+                rb.linearVelocity = Vector3.zero; // Evitar que se muevan despuï¿½s de pegarse
+                rb.angularVelocity = Vector3.zero; // Evitar giros indeseados
+            }
+
+            // Incrementar el contador
             contador++;
             txtContador.text = contador.ToString();
+            Debug.Log("Contador actualizado a: " + contador);
         }
     }
+
+
 }

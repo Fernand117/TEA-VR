@@ -4,20 +4,6 @@ using UnityEngine.UI;
 
 public class LobyController : MonoBehaviour
 {
-    public int LevelIndex;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
     public void LoadLevelIndex(int level)
     {
         SceneManager.LoadScene(level);
