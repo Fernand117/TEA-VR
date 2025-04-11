@@ -8,6 +8,8 @@ public class EnsartarPerlas : MonoBehaviour
 {
     public Text txtContador;
     private int contador = 0;
+    public AudioClip checkPerla;
+    public AudioSource audioSource;
 
     private void OnTriggerEnter(Collider collision)
     {
@@ -15,6 +17,9 @@ public class EnsartarPerlas : MonoBehaviour
 
         if (collision.GetComponent<Collider>().CompareTag("Perla"))
         {
+            audioSource.clip = checkPerla;
+            audioSource.Play();
+
             Transform perlaTransform = collision.transform;
 
             // Fijar la Perla como hija de la C�psula
