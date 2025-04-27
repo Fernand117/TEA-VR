@@ -11,6 +11,10 @@ public class EnsartarPerlas : MonoBehaviour
     public AudioClip checkPerla;
     public AudioSource audioSource;
 
+    public List<Image> circulosIndicadores; // arrastra aquí los 5 circulitos en el inspector
+    public Sprite circuloActivo;             // arrastra aquí el nuevo sprite (imagen activa)
+
+
     private void OnTriggerEnter(Collider collision)
     {
         Debug.Log("Colisi�n detectada con: " + collision.GetComponent<Collider>().name);
@@ -35,10 +39,23 @@ public class EnsartarPerlas : MonoBehaviour
                 rb.angularVelocity = Vector3.zero; // Evitar giros indeseados
             }
 
+            // 🚨 IMPORTANTE: Desactivar el collider
+            Collider col = collision.GetComponent<Collider>();
+            if (col != null)
+            {
+                col.enabled = false;
+            }
+
             // Incrementar el contador
             contador++;
             txtContador.text = contador.ToString();
             Debug.Log("Contador actualizado a: " + contador);
+
+            // Cambiar la imagen del círculo correspondiente
+            if (contador - 1 < circulosIndicadores.Count) // recuerda que las listas son base 0
+            {
+                circulosIndicadores[contador - 1].sprite = circuloActivo;
+            }
         }
     }
 
