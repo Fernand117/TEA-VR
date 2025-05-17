@@ -14,9 +14,47 @@ public class EnsartarPerlas : MonoBehaviour
     public List<Image> circulosIndicadores; // arrastra aquí los 5 circulitos en el inspector
     public Sprite circuloActivo;             // arrastra aquí el nuevo sprite (imagen activa)
 
+    // Referencias al canvas de felicitación y textos
+    public GameObject canvasFelicitaciones;
+    public Text txtTotalAciertos;
+    public Text txtTiempo;
+    public Text txtTotalIncorrectos;
+
+    // Variables para el tiempo
+    private float tiempoTranscurrido = 0f;
+    private bool juegoActivo = true;
+
+    private void Start()
+    {
+        // Asegurarse que el canvas esté desactivado al inicio
+        if (canvasFelicitaciones != null)
+        {
+            canvasFelicitaciones.SetActive(false);
+        }
+    }
+
+    // Agregar variable para el límite de tiempo
+    private const float TIEMPO_LIMITE = 120f; // 2 minutos en segundos
+
+    private void Update()
+    {
+        if (juegoActivo)
+        {
+            tiempoTranscurrido += Time.deltaTime;
+            
+            // Verificar si se acabó el tiempo
+            if (tiempoTranscurrido >= TIEMPO_LIMITE)
+            {
+                MostrarPanelFelicitaciones();
+            }
+        }
+    }
 
     private void OnTriggerEnter(Collider collision)
     {
+        // Agregar esta verificación al inicio
+        if (!juegoActivo || contador >= 5) return;
+
         Debug.Log("Colisi�n detectada con: " + collision.GetComponent<Collider>().name);
 
         if (collision.GetComponent<Collider>().CompareTag("Perla"))
@@ -52,12 +90,42 @@ public class EnsartarPerlas : MonoBehaviour
             Debug.Log("Contador actualizado a: " + contador);
 
             // Cambiar la imagen del círculo correspondiente
-            if (contador - 1 < circulosIndicadores.Count) // recuerda que las listas son base 0
+            if (contador - 1 < circulosIndicadores.Count)
             {
                 circulosIndicadores[contador - 1].sprite = circuloActivo;
+            }
+
+            // Verificar si se completaron las 5 perlas
+            if (contador >= 5)
+            {
+                MostrarPanelFelicitaciones();
             }
         }
     }
 
+    private void MostrarPanelFelicitaciones()
+    {
+        juegoActivo = false;
 
+        // Calcular estadísticas
+        int totalAciertos = contador;
+        int totalIncorrectos = 5 - contador; // Los que faltaron para completar 5
+        float tiempoMinutos = tiempoTranscurrido / 60f;
+
+        // Actualizar textos
+        if (txtTotalAciertos != null)
+            txtTotalAciertos.text = totalAciertos.ToString();
+        
+        if (txtTiempo != null)
+            txtTiempo.text = tiempoMinutos.ToString("F1") + " minutos";
+        
+        if (txtTotalIncorrectos != null)
+            txtTotalIncorrectos.text = totalIncorrectos.ToString();
+
+        // Mostrar el canvas
+        if (canvasFelicitaciones != null)
+        {
+            canvasFelicitaciones.SetActive(true);
+        }
+    }
 }

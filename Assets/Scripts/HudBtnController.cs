@@ -1,25 +1,20 @@
 using UnityEngine;
-using UnityEngine.UI; // Necesario para Button
+using UnityEngine.UI;
 
 public class HudBtnController : MonoBehaviour
 {
-    public GameObject HUD; // Arrastras aquí tu HUD (el panel azul que quieres ocultar)
+    public GameObject HUD;
+    public AudioSource audioInstrucciones; // Referencia al AudioSource
 
-    //private Button boton; // Referencia al botón
-
-    /*void Start()
+    void Start()
     {
-        boton = GetComponent<Button>();
-
-        if (boton != null)
+        // Verifica si hay un AudioSource asignado
+        if (audioInstrucciones != null)
         {
-            boton.onClick.AddListener(OcultarHUD);
+            // Calcula la duraciÃ³n del audio y programa la ocultaciÃ³n del HUD
+            Invoke("OcultarHUD", audioInstrucciones.clip.length);
         }
-        else
-        {
-            Debug.LogError("No se encontró el componente Button en " + gameObject.name);
-        }
-    }*/
+    }
 
     public void OcultarHUD()
     {
