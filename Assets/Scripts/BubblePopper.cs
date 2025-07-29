@@ -1,8 +1,6 @@
-using UnityEngine;
-using Oculus.Interaction;
-using Oculus.Interaction.HandGrab;
 using Oculus.Interaction.Input;
 using System.Collections.Generic;
+using UnityEngine;
 using UnityEngine.UI;
 
 public class BubblePopper : MonoBehaviour
@@ -29,6 +27,12 @@ public class BubblePopper : MonoBehaviour
     // Variables para el tiempo
     private float tiempoTranscurrido = 0f;
     private bool juegoActivo = true;
+    
+    [Header("Configuración del Juego")]
+    public string nivelDificultad = "Normal"; // Fácil, Normal, Difícil
+    
+    // Variables para tracking de errores
+    private static int intentosFallidos = 0;
 
     private void Start()
     {
@@ -37,13 +41,13 @@ public class BubblePopper : MonoBehaviour
         {
             sphereCollider.isTrigger = true;
         }
-        
+
         // Agregar esta burbuja a la lista de burbujas activas
         if (!activeBubbles.Contains(this))
         {
             activeBubbles.Add(this);
         }
-        
+
         // Asegurarse que el canvas esté desactivado al inicio
         if (canvasFelicitaciones != null)
         {
@@ -52,6 +56,7 @@ public class BubblePopper : MonoBehaviour
 
         // Reiniciar el contador global cuando se inicia el nivel
         contadorGlobal = 0;
+        intentosFallidos = 0;
         if (txtContador != null)
         {
             txtContador.text = "0";
@@ -81,19 +86,19 @@ public class BubblePopper : MonoBehaviour
             IHand handComponent = hand.GetComponent<IHand>();
             float indexPinch = handComponent.GetFingerPinchStrength(HandFinger.Index);
             float thumbPinch = handComponent.GetFingerPinchStrength(HandFinger.Thumb);
-            
+
             if (indexPinch > pinchThreshold && thumbPinch > pinchThreshold && !isProcessingPop)
             {
                 // Obtener las posiciones de los dedos
                 handComponent.GetJointPose(HandJointId.HandIndexTip, out Pose indexPose);
                 handComponent.GetJointPose(HandJointId.HandThumbTip, out Pose thumbPose);
-                
+
                 // Calcular el punto medio entre los dedos
                 Vector3 pinchPosition = Vector3.Lerp(indexPose.position, thumbPose.position, 0.5f);
-                
+
                 // Encontrar la burbuja más cercana al punto de pellizco
                 BubblePopper closestBubble = GetClosestBubble(pinchPosition);
-                
+
                 // Verificar si esta burbuja es la más cercana y está dentro de un radio razonable
                 float distanceToPinch = Vector3.Distance(transform.position, pinchPosition);
                 if (closestBubble == this && distanceToPinch < 0.05f) // Ajusta este valor según necesites
@@ -167,7 +172,7 @@ public class BubblePopper : MonoBehaviour
         if (juegoActivo)
         {
             tiempoTranscurrido += Time.deltaTime;
-            
+
             // Verificar si se acabó el tiempo
             if (tiempoTranscurrido >= TIEMPO_LIMITE)
             {
@@ -179,34 +184,64 @@ public class BubblePopper : MonoBehaviour
     private void MostrarPanelFelicitaciones()
     {
         if (!juegoActivo) return; // Evitar que se muestre múltiples veces
-        
+
         juegoActivo = false;
-        
+
         if (canvasFelicitaciones != null)
         {
             canvasFelicitaciones.SetActive(true);
-            
+
             // Mostrar total de aciertos (burbujas reventadas)
             if (txtTotalAciertos != null)
                 txtTotalAciertos.text = contadorGlobal.ToString();
-            
+
             // Mostrar tiempo transcurrido en minutos (máximo 2 minutos)
             float tiempoFinal = Mathf.Min(tiempoTranscurrido, TIEMPO_LIMITE);
             if (txtTiempo != null)
                 txtTiempo.text = (tiempoFinal / 60f).ToString("F1") + " minutos";
-            
-            // Calcular y mostrar incorrectos (burbujas faltantes)
+
+            // Calcular y mostrar incorrectos (intentos fallidos)
             if (txtTotalIncorrectos != null)
-                txtTotalIncorrectos.text = (5 - contadorGlobal).ToString();
+                txtTotalIncorrectos.text = intentosFallidos.ToString();
+        }
+
+        // 🎯 GUARDAR RESULTADOS
+        GuardarResultadosEjercicio();
+    }
+
+    /// <summary>
+    /// Guarda los resultados del ejercicio usando el ResultadosManager
+    /// </summary>
+    private void GuardarResultadosEjercicio()
+    {
+        try
+        {
+            // Obtener referencia al manager de resultados
+            ResultadosManager resultadosManager = ResultadosManager.Instance;
+            
+            // Guardar los resultados
+            resultadosManager.GuardarResultado(
+                nombreEjercicio: "Reventar Burbujas",
+                exitos: contadorGlobal,
+                fallas: intentosFallidos,
+                tiempo: tiempoTranscurrido,
+                dificultad: nivelDificultad
+            );
+            
+            Debug.Log($"✅ Resultados Burbujas guardados: {contadorGlobal} éxitos, {intentosFallidos} fallas, {tiempoTranscurrido:F1}s");
+        }
+        catch (System.Exception e)
+        {
+            Debug.LogError($"❌ Error al guardar resultados de burbujas: {e.Message}");
         }
     }
 
     private void PopBubble()
     {
         if (isPopped) return;
-        
+
         isPopped = true;
-        
+
         // Incrementar el contador global y actualizar el texto
         contadorGlobal++;
         if (txtContador != null)
@@ -219,7 +254,7 @@ public class BubblePopper : MonoBehaviour
         {
             circulosIndicadores[contadorGlobal - 1].sprite = circuloActivo;
         }
-        
+
         // Verificar si se han completado todas las burbujas
         if (contadorGlobal >= 5)
         {
