@@ -2144,7 +2144,7 @@ Transform:
   m_GameObject: {fileID: 126273398}
   serializedVersion: 2
   m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: -5.756, y: 0.708, z: -8.824}
+  m_LocalPosition: {x: -5.756, y: 0.708, z: -8.957}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2643,6 +2643,7 @@ MonoBehaviour:
   txtTotalAciertos: {fileID: 280510085}
   txtTiempo: {fileID: 332724990}
   txtTotalIncorrectos: {fileID: 50707892}
+  nivelDificultad: Normal
   txtContador: {fileID: 420474520}
 --- !u!135 &146478397
 SphereCollider:
@@ -3690,6 +3691,7 @@ MonoBehaviour:
   txtTotalAciertos: {fileID: 280510085}
   txtTiempo: {fileID: 332724990}
   txtTotalIncorrectos: {fileID: 50707892}
+  nivelDificultad: Normal
   txtContador: {fileID: 420474520}
 --- !u!135 &206135701
 SphereCollider:
@@ -6746,6 +6748,7 @@ MonoBehaviour:
   txtTotalAciertos: {fileID: 280510085}
   txtTiempo: {fileID: 332724990}
   txtTotalIncorrectos: {fileID: 50707892}
+  nivelDificultad: Normal
   txtContador: {fileID: 420474520}
 --- !u!1 &335706105
 GameObject:
@@ -7898,6 +7901,7 @@ MonoBehaviour:
   txtTotalAciertos: {fileID: 280510085}
   txtTiempo: {fileID: 332724990}
   txtTotalIncorrectos: {fileID: 50707892}
+  nivelDificultad: Normal
   txtContador: {fileID: 420474520}
 --- !u!4 &381058492 stripped
 Transform:
@@ -8795,6 +8799,7 @@ MonoBehaviour:
   txtTotalAciertos: {fileID: 280510085}
   txtTiempo: {fileID: 332724990}
   txtTotalIncorrectos: {fileID: 50707892}
+  nivelDificultad: Normal
   txtContador: {fileID: 420474520}
 --- !u!1 &411870770
 GameObject:
@@ -9040,7 +9045,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 3
+  m_Text: 0
 --- !u!222 &420474521
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -9301,7 +9306,7 @@ Transform:
   m_GameObject: {fileID: 431200115}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.918, y: 0.068, z: -9.222}
+  m_LocalPosition: {x: -5.918, y: 0.068, z: -9.844}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -10170,6 +10175,7 @@ MonoBehaviour:
   txtTotalAciertos: {fileID: 280510085}
   txtTiempo: {fileID: 332724990}
   txtTotalIncorrectos: {fileID: 50707892}
+  nivelDificultad: Normal
   txtContador: {fileID: 420474520}
 --- !u!1 &477482924
 GameObject:
@@ -11124,7 +11130,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: b9676b8c49ffb704cb410b41d3d9eb5c, type: 3}
+  m_Sprite: {fileID: 21300000, guid: cd78a37e1b037784f82948a05ddee728, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -11360,7 +11366,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &532547186
 Transform:
   m_ObjectHideFlags: 0
@@ -13185,6 +13191,7 @@ MonoBehaviour:
   txtTotalAciertos: {fileID: 280510085}
   txtTiempo: {fileID: 332724990}
   txtTotalIncorrectos: {fileID: 50707892}
+  nivelDificultad: Normal
   txtContador: {fileID: 420474520}
 --- !u!1 &656490913
 GameObject:
@@ -15684,6 +15691,7 @@ MonoBehaviour:
   txtTotalAciertos: {fileID: 280510085}
   txtTiempo: {fileID: 332724990}
   txtTotalIncorrectos: {fileID: 50707892}
+  nivelDificultad: Normal
   txtContador: {fileID: 420474520}
 --- !u!135 &832575890
 SphereCollider:
@@ -16371,6 +16379,7 @@ MonoBehaviour:
   txtTotalAciertos: {fileID: 280510085}
   txtTiempo: {fileID: 332724990}
   txtTotalIncorrectos: {fileID: 50707892}
+  nivelDificultad: Normal
   txtContador: {fileID: 420474520}
 --- !u!1 &858573851
 GameObject:
@@ -17986,6 +17995,7 @@ MonoBehaviour:
   txtTotalAciertos: {fileID: 280510085}
   txtTiempo: {fileID: 332724990}
   txtTotalIncorrectos: {fileID: 50707892}
+  nivelDificultad: Normal
   txtContador: {fileID: 420474520}
 --- !u!1 &941893861
 GameObject:
@@ -18634,6 +18644,7 @@ MonoBehaviour:
   txtTotalAciertos: {fileID: 280510085}
   txtTiempo: {fileID: 332724990}
   txtTotalIncorrectos: {fileID: 50707892}
+  nivelDificultad: Normal
   txtContador: {fileID: 420474520}
 --- !u!1 &963608638
 GameObject:
@@ -21450,6 +21461,7 @@ MonoBehaviour:
   txtTotalAciertos: {fileID: 280510085}
   txtTiempo: {fileID: 332724990}
   txtTotalIncorrectos: {fileID: 50707892}
+  nivelDificultad: Normal
   txtContador: {fileID: 420474520}
 --- !u!1 &1101620866
 GameObject:
@@ -22635,6 +22647,7 @@ MonoBehaviour:
   txtTotalAciertos: {fileID: 280510085}
   txtTiempo: {fileID: 332724990}
   txtTotalIncorrectos: {fileID: 50707892}
+  nivelDificultad: Normal
   txtContador: {fileID: 420474520}
 --- !u!1 &1144999584
 GameObject:
@@ -23058,7 +23071,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: b9676b8c49ffb704cb410b41d3d9eb5c, type: 3}
+  m_Sprite: {fileID: 21300000, guid: cd78a37e1b037784f82948a05ddee728, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -26635,6 +26648,7 @@ MonoBehaviour:
   txtTotalAciertos: {fileID: 280510085}
   txtTiempo: {fileID: 332724990}
   txtTotalIncorrectos: {fileID: 50707892}
+  nivelDificultad: Normal
   txtContador: {fileID: 420474520}
 --- !u!1 &1306798716
 GameObject:
@@ -28695,6 +28709,7 @@ MonoBehaviour:
   txtTotalAciertos: {fileID: 280510085}
   txtTiempo: {fileID: 332724990}
   txtTotalIncorrectos: {fileID: 50707892}
+  nivelDificultad: Normal
   txtContador: {fileID: 420474520}
 --- !u!1 &1422822718
 GameObject:
@@ -29471,6 +29486,7 @@ MonoBehaviour:
   txtTotalAciertos: {fileID: 280510085}
   txtTiempo: {fileID: 332724990}
   txtTotalIncorrectos: {fileID: 50707892}
+  nivelDificultad: Normal
   txtContador: {fileID: 420474520}
 --- !u!1 &1456149490
 GameObject:
@@ -32114,7 +32130,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: b9676b8c49ffb704cb410b41d3d9eb5c, type: 3}
+  m_Sprite: {fileID: 21300000, guid: cd78a37e1b037784f82948a05ddee728, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -33185,7 +33201,7 @@ Transform:
   m_GameObject: {fileID: 1687757782}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -6.2888, y: 1.038, z: -8.9577}
+  m_LocalPosition: {x: -6.2261, y: 1.038, z: -8.9577}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -35305,6 +35321,7 @@ MonoBehaviour:
   txtTotalAciertos: {fileID: 280510085}
   txtTiempo: {fileID: 332724990}
   txtTotalIncorrectos: {fileID: 50707892}
+  nivelDificultad: Normal
   txtContador: {fileID: 420474520}
 --- !u!1 &1775923783
 GameObject:
@@ -37153,6 +37170,7 @@ MonoBehaviour:
   txtTotalAciertos: {fileID: 280510085}
   txtTiempo: {fileID: 332724990}
   txtTotalIncorrectos: {fileID: 50707892}
+  nivelDificultad: Normal
   txtContador: {fileID: 420474520}
 --- !u!135 &1850124892
 SphereCollider:
@@ -39907,6 +39925,7 @@ MonoBehaviour:
   txtTotalAciertos: {fileID: 280510085}
   txtTiempo: {fileID: 332724990}
   txtTotalIncorrectos: {fileID: 50707892}
+  nivelDificultad: Normal
   txtContador: {fileID: 420474520}
 --- !u!1 &1967476633
 GameObject:
@@ -40066,6 +40085,7 @@ MonoBehaviour:
   txtTotalAciertos: {fileID: 280510085}
   txtTiempo: {fileID: 332724990}
   txtTotalIncorrectos: {fileID: 50707892}
+  nivelDificultad: Normal
   txtContador: {fileID: 420474520}
 --- !u!135 &1967476637
 SphereCollider:
@@ -40972,6 +40992,7 @@ MonoBehaviour:
   txtTotalAciertos: {fileID: 280510085}
   txtTiempo: {fileID: 332724990}
   txtTotalIncorrectos: {fileID: 50707892}
+  nivelDificultad: Normal
   txtContador: {fileID: 420474520}
 --- !u!135 &1989320683
 SphereCollider:
@@ -41358,6 +41379,7 @@ MonoBehaviour:
   txtTotalAciertos: {fileID: 280510085}
   txtTiempo: {fileID: 332724990}
   txtTotalIncorrectos: {fileID: 50707892}
+  nivelDificultad: Normal
   txtContador: {fileID: 420474520}
 --- !u!1 &1992967779
 GameObject:
@@ -43132,6 +43154,7 @@ MonoBehaviour:
   txtTotalAciertos: {fileID: 280510085}
   txtTiempo: {fileID: 332724990}
   txtTotalIncorrectos: {fileID: 50707892}
+  nivelDificultad: Normal
   txtContador: {fileID: 420474520}
 --- !u!1 &2089698144
 GameObject:
@@ -43541,6 +43564,7 @@ MonoBehaviour:
   txtTotalAciertos: {fileID: 280510085}
   txtTiempo: {fileID: 332724990}
   txtTotalIncorrectos: {fileID: 50707892}
+  nivelDificultad: Normal
   txtContador: {fileID: 420474520}
 --- !u!1 &2105511773
 GameObject:
@@ -44210,6 +44234,7 @@ MonoBehaviour:
   txtTotalAciertos: {fileID: 280510085}
   txtTiempo: {fileID: 332724990}
   txtTotalIncorrectos: {fileID: 50707892}
+  nivelDificultad: Normal
   txtContador: {fileID: 420474520}
 --- !u!1 &2138195813
 GameObject:

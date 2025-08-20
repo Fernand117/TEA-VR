@@ -67,7 +67,7 @@ public class EnsartarPerlas : MonoBehaviour
         if (collision.GetComponent<Collider>().CompareTag("Perla"))
         {
             // Ensartar la perla usando el método original
-            EnsartarPerlaColision(collision.gameObject);
+            EnsartarPerlaColisionV2(collision.gameObject);
         }
     }
 
@@ -124,6 +124,40 @@ public class EnsartarPerlas : MonoBehaviour
             MostrarPanelFelicitaciones();
         }
     }
+
+    private void EnsartarPerlaColisionV2(GameObject perla)
+    {
+        // Reproducir sonido
+        if (audioSource != null && checkPerla != null)
+        {
+            audioSource.clip = checkPerla;
+            audioSource.Play();
+        }
+
+        // ❌ En lugar de pegarla al hilo → la eliminamos
+        Destroy(perla); // O perla.SetActive(false) si prefieres solo ocultarla
+
+        // Incrementar el contador
+        contador++;
+        if (txtContador != null)
+        {
+            txtContador.text = contador.ToString();
+        }
+        Debug.Log("Contador actualizado a: " + contador);
+
+        // Cambiar la imagen del círculo correspondiente
+        if (contador - 1 < circulosIndicadores.Count)
+        {
+            circulosIndicadores[contador - 1].sprite = circuloActivo;
+        }
+
+        // Verificar si se completaron las 5 perlas
+        if (contador >= 5)
+        {
+            MostrarPanelFelicitaciones();
+        }
+    }
+
 
     private void MostrarPanelFelicitaciones()
     {

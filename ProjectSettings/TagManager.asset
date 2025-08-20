@@ -6,6 +6,9 @@ TagManager:
   tags:
   - Perla
   - HandGrabGlow
+  - Vaso
+  - Camino
+  - PlatoDestino
   layers:
   - Default
   - TransparentFX
