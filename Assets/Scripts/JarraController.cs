@@ -59,6 +59,14 @@ namespace Assets.Scripts
             textoAciertos.text = aciertos.ToString();
             textoTiempo.text = tiempoTotal.ToString("F2") + " segundos";
             textoIncorrectos.text = incorrectos.ToString();
+
+            ResultadosManager.Instance.GuardarResultado(
+                nombreEjercicio: "Servir bebidas en copas",
+                exitos: aciertos,
+                fallas: incorrectos,
+                tiempo: tiempoTotal,
+                dificultad: "Básico"
+            );
         }
     }
 

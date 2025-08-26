@@ -21,7 +21,7 @@ public class EnsartarPerlas : MonoBehaviour
     public Text txtTotalIncorrectos;
 
     [Header("Configuración del Juego")]
-    public string nivelDificultad = "Normal"; // Fácil, Normal, Difícil
+    public string nivelDificultad = "Básico"; // Fácil, Normal, Difícil
     
     // Variables del juego
     private int contador = 0;

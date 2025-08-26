@@ -29,7 +29,7 @@ public class BubblePopper : MonoBehaviour
     private bool juegoActivo = true;
     
     [Header("Configuración del Juego")]
-    public string nivelDificultad = "Normal"; // Fácil, Normal, Difícil
+    public string nivelDificultad = "Básico"; // Fácil, Normal, Difícil
     
     // Variables para tracking de errores
     private static int intentosFallidos = 0;

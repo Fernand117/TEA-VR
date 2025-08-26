@@ -74,6 +74,14 @@
             if (txtTiempo != null) txtTiempo.text = minutos.ToString("F2") + " minutos";
             if (txtTotalIncorrectos != null) txtTotalIncorrectos.text = errores.ToString();
 
+            ResultadosManager.Instance.GuardarResultado(
+                nombreEjercicio: "Intermedio",
+                exitos: aciertos,
+                fallas: errores,
+                tiempo: tiempoTranscurrido,
+                dificultad: "Intermedio"
+            );
+
             if (canvasFelicitaciones != null)
                 canvasFelicitaciones.SetActive(true);
         }
