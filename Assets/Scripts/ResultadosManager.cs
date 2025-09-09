@@ -6,6 +6,9 @@ using UnityEngine;
 [System.Serializable]
 public class ResultadoEjercicio
 {
+    public string nombreJugador;
+    public string generoJugador;
+    public string edadJugador;
     public string nombreEjercicio;
     public int totalExitos;
     public int totalFallas;
@@ -19,8 +22,21 @@ public class ResultadoEjercicio
         totalExitos = exitos;
         totalFallas = fallas;
         tiempoTranscurrido = tiempo;
-        fechaHora = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
         nivelDificultad = dificultad;
+        fechaHora = System.DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
+        // Datos del jugador
+        if (JugadorActual.Instance != null)
+        {
+            nombreJugador = JugadorActual.Instance.Nombre;
+            generoJugador = JugadorActual.Instance.Genero;
+            edadJugador = JugadorActual.Instance.Edad;
+        }
+        else
+        {
+            nombreJugador = "";
+            generoJugador = "";
+            edadJugador = "";
+        }
     }
 }
 
@@ -124,47 +140,52 @@ public class ResultadosManager : MonoBehaviour
         AlmacenamientoInterno   // Almacenamiento interno de la app (menos accesible)
     }
     
-    private void ConfigurarRutasGuardado()
+    public void ConfigurarRutasGuardado()
     {
+        string nombreJugador = "";
+        if (JugadorActual.Instance != null && !string.IsNullOrEmpty(JugadorActual.Instance.Nombre))
+        {
+            // Sanitizar el nombre para evitar caracteres inv1lidos en la ruta
+            nombreJugador = JugadorActual.Instance.Nombre.Trim();
+            foreach (char c in Path.GetInvalidFileNameChars())
+            {
+                nombreJugador = nombreJugador.Replace(c, '_');
+            }
+        }
+        else
+        {
+            nombreJugador = "SinNombre";
+        }
         // Para Quest/Android, usar diferentes ubicaciones según configuración
         #if UNITY_ANDROID && !UNITY_EDITOR
             switch (ubicacionGuardado)
             {
                 case TipoUbicacionGuardado.DocumentosPublicos:
-                    // Carpeta Documentos - más fácil de encontrar
                     rutaGuardado = Path.Combine("/sdcard/Documents", "TEA_VR_Results");
                     break;
-                    
                 case TipoUbicacionGuardado.DescargasPublicas:
-                    // Carpeta Descargas - como archivos descargados
                     rutaGuardado = Path.Combine("/sdcard/Download", "TEA_VR_Results");
                     break;
-                    
                 case TipoUbicacionGuardado.AlmacenamientoApp:
-                    // Ubicación específica de la app (actual)
                     rutaGuardado = Path.Combine("/sdcard/Android/data", Application.identifier, "files", "ResultadosVR");
                     break;
-                    
                 case TipoUbicacionGuardado.AlmacenamientoInterno:
-                    // Almacenamiento interno de Unity (menos accesible)
                     rutaGuardado = Path.Combine(Application.persistentDataPath, "ResultadosVR");
                     break;
             }
         #else
-            // Para editor y otras plataformas
             rutaGuardado = Path.Combine(Application.persistentDataPath, "ResultadosVR");
         #endif
-        
-        // Crear directorio si no existe
+        // Añadir subcarpeta por jugador (siempre, ya que nombreJugador nunca estará vacío)
+        rutaGuardado = Path.Combine(rutaGuardado, nombreJugador);
         if (!Directory.Exists(rutaGuardado))
         {
             Directory.CreateDirectory(rutaGuardado);
         }
-        
-        // Nombres de archivos con fecha
         string fecha = DateTime.Now.ToString("yyyy-MM-dd");
-        nombreArchivoSesion = $"Sesion_{fecha}_{DateTime.Now.ToString("HHmm")}.json";
-        nombreArchivoHistorial = "HistorialCompleto.json";
+        // Los nombres de archivo ahora incluyen el nombre del jugador
+        nombreArchivoSesion = $"Sesion_{nombreJugador}_{fecha}_{DateTime.Now.ToString("HHmm")}.json";
+        nombreArchivoHistorial = $"HistorialCompleto_{nombreJugador}.json";
     }
     
     /// <summary>

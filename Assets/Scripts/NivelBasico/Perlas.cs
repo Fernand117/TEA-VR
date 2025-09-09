@@ -35,7 +35,7 @@ public class Perla : MonoBehaviour
 
                 // Desactivar f�sica para que no caiga ni se mueva
                 rb.isKinematic = true;
-                rb.useGravity = false;
+                rb.useGravity = true;
                 rb.linearVelocity = Vector3.zero;
                 rb.angularVelocity = Vector3.zero;
 
